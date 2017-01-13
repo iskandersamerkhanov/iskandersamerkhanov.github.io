@@ -14,20 +14,20 @@ $(".start-second").click(function() {
     globals.game.start();
 });
 
- $(".cell").each(function() {
-     var $this = $(this);
-     $this.click(function() {
-        if(globals.game.aiSymbol !== globals.game.currentState.turn && !$this.hasClass('filled')) {
+$(".cell").each(function() {
+    var $this = $(this);
+    $this.click(function() {
+        if (globals.game !== undefined && !$this.hasClass('filled') && globals.game.aiSymbol !== globals.game.currentState.turn) {
             var index = parseInt($this.data("index"));
-
             var newState = new State(globals.game.currentState);
             newState.board[index] = globals.game.humanSymbol;
-
             ui.insertAt(index, globals.game.humanSymbol);
-
             newState.advanceTurn();
-
             globals.game.advanceTo(newState);
         }
-     })
- });
+    })
+});
+
+$(".restart-button").click(function() {
+    ui.switchToStartingMenu();
+});

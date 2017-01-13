@@ -25,21 +25,19 @@ var Game = function(ai, aiIsFirstPlayer) {
             }
         }
         else {
-            if(this.currentState.turn === this.humanSymbol) {
-                ui.switchViewTo("human");
-            }
-            else if (this.currentState.turn === this.aiSymbol) {
-                ui.switchViewTo("ai");
+            if (this.currentState.turn === this.aiSymbol) {
                 this.ai.makeAMove(this.aiSymbol);
             }
         }
     };
 
     this.start = function() {
+        ui.clearBoard();
         if(this.status = "beginning") {
             this.advanceTo(this.currentState);
             this.status = "running";
         }
+        ui.hideStartingMenu();
     }
 
     this.getScore = function(state) {

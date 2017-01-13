@@ -1,27 +1,32 @@
 var ui = {};
 
-ui.startingMenuVisible = true;
+ui.restartButtonVisible = false;
 
 ui.currentView = "";
 
-ui.switchViewTo = function(turn) {
-    function _switch(_turn) {
-        ui.currentView = "#" + _turn;
-        $(ui.currentView).css("display", "block");
-    }
-
-    if(ui.startingMenuVisible) {
-        ui.startingMenuVisible = false;
-
-        $('.board').css("opacity", 1);
-        $('.starting-menu').css("display", "none");
-        _switch(turn);
-    }
-    else {
+ui.switchViewTo = function(result) {
+    if (ui.currentView !== "") {
         $(ui.currentView).css("display", "none");
-        _switch(turn);
     }
+    ui.currentView = "#" + result;
+    $(ui.currentView).css("display", "block");
+    $('.restart-button').css("display", "block");
 };
+
+ui.switchToStartingMenu = function() {
+    if (ui.currentView !== "") {
+        $(ui.currentView).css("display", "none");
+        ui.currentView = "";
+    }
+    $('.restart-button').css("display", "none");
+    $('.starting-menu').css("display", "block");
+    $('.board').css("opacity", 0.15);
+};
+
+ui.hideStartingMenu = function() {
+    $('.starting-menu').css("display", "none");
+    $('.board').css("opacity", 1);
+}
 
 ui.insertAt = function(index, symbol) {
     var cells = $('.cell');
@@ -31,4 +36,10 @@ ui.insertAt = function(index, symbol) {
         targetCell.html(symbol);
         targetCell.addClass('filled');
     }
+}
+
+ui.clearBoard = function() {
+    var cells = $('.cell');
+    cells.removeClass('filled');
+    cells.empty();
 }

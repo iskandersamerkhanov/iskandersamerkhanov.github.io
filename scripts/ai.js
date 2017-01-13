@@ -39,6 +39,17 @@ var AI = function() {
     }
 
     this.makeAMove = function(turn) {
+        if (currentGame.currentState.aiMovesCount === 0 && turn === "x") {
+            var randomPosition = Math.floor(Math.random()*9);
+            var aiAction =  new AIAction(randomPosition, true);
+            var nextState = aiAction.applyTo(currentGame.currentState);
+
+            ui.insertAt(aiAction.movePosition, turn);
+            currentGame.advanceTo(nextState);
+
+            return;
+        }
+
         var emptyPositions = currentGame.currentState.getEmptyCellsIndices();
 
         var availableActions = emptyPositions.map(function(emptyPosition) {
@@ -51,7 +62,7 @@ var AI = function() {
         availableActions.sort(sortInAscendingOfMinimaxValue);
 
         var chosenAction = availableActions[0];
-        var nextState = chosenAction.applyTo(currentGame.currentState);
+        nextState = chosenAction.applyTo(currentGame.currentState);
 
         ui.insertAt(chosenAction.movePosition, turn);
         currentGame.advanceTo(nextState);
