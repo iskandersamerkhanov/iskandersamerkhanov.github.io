@@ -1,19 +1,17 @@
 var ui = {};
 
-ui.currentView = "";
+//view with result of game
+ui.lastResultOfGame = "";
 
-ui.switchViewTo = function(result) {
-    if (ui.currentView !== "") {
-        $(ui.currentView).css("display", "none");
-    }
-    ui.currentView = "#" + result;
-    $(ui.currentView).css("display", "block");
+ui.switchViewTo = function(currentResult) {
+    ui.lastResultOfGame = "#" + currentResult;
+    $(ui.lastResultOfGame).css("display", "block");
 };
 
 ui.switchToStartingMenu = function() {
-    if (ui.currentView !== "") {
-        $(ui.currentView).css("display", "none");
-        ui.currentView = "";
+    if (ui.lastResultOfGame !== "") {
+        $(ui.lastResultOfGame).css("display", "none");
+        ui.lastResultOfGame = "";
     }
     $('.starting-menu').css("display", "block");
     $('.board').css("opacity", 0.15);
