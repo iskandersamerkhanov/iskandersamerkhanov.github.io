@@ -18,4 +18,4 @@ AI always wants to minimize score of the game's terminal state, Player always wa
 
 ##Score function
 Algorithm has score function that evaluates score of the game's terminal state. If value is negative - AI wins, if positive - Player wins, if zero - it is a draw.
-This is because Tic-Tac-Toe is zero-sum game
+This is because Tic-Tac-Toe is zero-sum game.
