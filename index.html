@@ -1,1 +1,41 @@
-Hello World!
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Tic-Tac-Toe with AI</title>
+    <link rel='stylesheet' type='text/css' href='styles/ui.css'>
+</head>
+<body>
+    <div class='tictactoe-area'>
+        <div class='title'>Tic-Tac-Toe with AI</div>
+        <div class='board'>
+            <div class='cell' data-index="0"></div>
+            <div class='cell' data-index="1"></div>
+            <div class='cell' data-index="2"></div>
+            <div class='cell' data-index="3"></div>
+            <div class='cell' data-index="4"></div>
+            <div class='cell' data-index="5"></div>
+            <div class='cell' data-index="6"></div>
+            <div class='cell' data-index="7"></div>
+            <div class='cell' data-index="8"></div>
+        </div>
+        <div class='menu'>
+            <div class='starting-menu'>
+                <div class="starting-button start-first">as the first player</div>
+                <div class="starting-button start-second">as the second player</div>
+            </div>
+
+            <div class='information' id="win">WIN</div>
+            <div class='information' id="loss">LOSS</div>
+            <div class='information' id="draw">DRAW</div>
+        </div>
+    </div>
+
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="scripts/ui.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="scripts/ai.js"></script>
+    <script src="scripts/control.js"></script>
+    <script src="scripts/aiaction.js"></script>
+    <script src="scripts/state.js"></script>
+</body>
+</html>
