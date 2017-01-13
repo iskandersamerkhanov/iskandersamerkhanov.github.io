@@ -86,24 +86,3 @@
     color: darkslategray;
     padding: 20px 0px;
 }
-
-.restart-button {
-    display: none;
-    height: 90px;
-    width: 426px;
-    margin: 30px auto;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    text-align: center;
-    font-family: "Arial";
-    font-size: 40px;
-    color: darkslategray;
-    padding: 20px 0px;
-    border: 6px solid darkslategray;
-}
-
-.restart-button:hover {
-    border-color: lightslategray;
-    color: lightslategray;
-}

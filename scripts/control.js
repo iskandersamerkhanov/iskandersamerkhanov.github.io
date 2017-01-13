@@ -17,7 +17,8 @@ $(".start-second").click(function() {
 $(".cell").each(function() {
     var $this = $(this);
     $this.click(function() {
-        if (globals.game !== undefined && !$this.hasClass('filled') && globals.game.aiSymbol !== globals.game.currentState.turn) {
+        if (globals.game !== undefined && !$this.hasClass('filled') && 
+            globals.game.aiSymbol !== globals.game.currentState.turn && globals.game.status !== "ended") {
             var index = parseInt($this.data("index"));
             var newState = new State(globals.game.currentState);
             newState.board[index] = globals.game.humanSymbol;
@@ -25,9 +26,8 @@ $(".cell").each(function() {
             newState.advanceTurn();
             globals.game.advanceTo(newState);
         }
+        else if (globals.game !== undefined && globals.game.status === "ended") {
+            ui.switchToStartingMenu();
+        }
     })
-});
-
-$(".restart-button").click(function() {
-    ui.switchToStartingMenu();
 });
