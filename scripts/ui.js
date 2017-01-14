@@ -6,7 +6,7 @@ ui.lastResultOfGame = "";
 ui.switchViewTo = function(currentResult) {
     ui.lastResultOfGame = "#" + currentResult;
     $(ui.lastResultOfGame).css("display", "block");
-    $('.restart-button').css("display", "block");
+    $('#empty').css("display", "none");
 };
 
 ui.switchToStartingMenu = function() {
@@ -22,6 +22,8 @@ ui.switchToStartingMenu = function() {
 ui.hideStartingMenu = function() {
     $('.starting-menu').css("display", "none");
     $('.board').css("opacity", 1);
+    $('#empty').css("display", "block");
+    $('.restart-button').css("display", "block");
 }
 
 ui.insertAt = function(index, symbol) {
