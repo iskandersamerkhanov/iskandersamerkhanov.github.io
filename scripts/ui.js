@@ -6,6 +6,7 @@ ui.lastResultOfGame = "";
 ui.switchViewTo = function(currentResult) {
     ui.lastResultOfGame = "#" + currentResult;
     $(ui.lastResultOfGame).css("display", "block");
+    $('.restart-button').css("display", "block");
 };
 
 ui.switchToStartingMenu = function() {
@@ -15,6 +16,7 @@ ui.switchToStartingMenu = function() {
     }
     $('.starting-menu').css("display", "block");
     $('.board').css("opacity", 0.15);
+    $('.restart-button').css("display", "none");
 };
 
 ui.hideStartingMenu = function() {
@@ -35,5 +37,14 @@ ui.insertAt = function(index, symbol) {
 ui.clearBoard = function() {
     var cells = $('.cell');
     cells.removeClass('filled');
+    cells.removeClass('losing-line');
     cells.empty();
+}
+
+ui.pickOutLosingLine = function(winnerLineIndices) {
+    var cells = $('.cell');
+    winnerLineIndices.map(function(index) {
+        var cell = $(cells[index]);
+        cell.addClass('losing-line');
+    })
 }

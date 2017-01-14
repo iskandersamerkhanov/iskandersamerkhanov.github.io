@@ -19,6 +19,10 @@ var State = function(previousState) {
      * public: the symbol of the winner, if one of the players wins in this state
      */
     this.winnerSymbol = "";
+    /*
+     * public: three indices of the winning line
+     */
+    this.winnerLineIndices = [];
     
     /* Construction of new state using previous state*/
     if(typeof previousState !== "undefined") {
@@ -65,6 +69,7 @@ var State = function(previousState) {
         for(var i = 0; i <= 6; i = i + 3) {
             if(B[i] !== "" && B[i] === B[i + 1] && B[i + 1] == B[i + 2]) {
                 this.winnerSymbol = B[i];
+                this.winnerLineIndices = [i, i + 1, i + 2];
                 return true;
             }
         }
@@ -73,6 +78,7 @@ var State = function(previousState) {
         for(var i = 0; i <= 2 ; i++) {
             if(B[i] !== "" && B[i] === B[i + 3] && B[i + 3] === B[i + 6]) {
                 this.winnerSymbol = B[i];
+                this.winnerLineIndices = [i, i + 3, i + 6];
                 return true;
             }
         }
@@ -81,6 +87,7 @@ var State = function(previousState) {
         for(var i = 0, j = 4; i <= 2 ; i = i + 2, j = j - 2) {
             if(B[i] !== "" && B[i] == B[i + j] && B[i + j] === B[i + 2*j]) {
                 this.winnerSymbol = B[i];
+                this.winnerLineIndices = [i, i + j, i + 2*j];
                 return true;
             }
         }

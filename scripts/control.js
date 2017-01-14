@@ -35,4 +35,7 @@ $(".cell").each(function() {
             ui.switchToStartingMenu();
         }
     })
+$(".restart-button").click(function() {
+    ui.switchToStartingMenu();
+});
 });

@@ -39,6 +39,7 @@ var Game = function(ai, aiIsFirstPlayer) {
             }             
             else if(this.currentState.winnerSymbol === this.aiSymbol){
                 ui.switchViewTo("loss");
+                ui.pickOutLosingLine(this.currentState.winnerLineIndices);
             }
             else {
                 ui.switchViewTo("draw");

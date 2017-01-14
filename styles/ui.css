@@ -1,17 +1,8 @@
 .tictactoe-area {
     height: 100%;
     width: 900px;
-    margin: 50px auto 0px;
+    margin: 15px auto 0px;
     cursor: default;
-}
-
-.title {
-    width: 600px;
-    text-align: center;
-    margin: 30px auto;
-    font-family: "Arial";
-    font-size: 40px;
-    color: darkslategray;
 }
 
 .board {
@@ -41,7 +32,7 @@
 .starting-menu {
     height: 90px;
     width: 426px;
-    margin: 30px auto;
+    margin: 10px auto;
 }
 
 .starting-button {
@@ -74,9 +65,9 @@
 
 .information {
     display: none;
-    height: 90px;
+    height: 60px;
     width: 426px;
-    margin: 30px auto;
+    margin: 5px auto 0px;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -84,5 +75,38 @@
     font-family: "Arial";
     font-size: 40px;
     color: darkslategray;
-    padding: 20px 0px;
+    padding: 7px 0px;
+}
+
+.information#loss {
+    color: palevioletred;
+}
+
+.information#draw {
+    color:  darkgoldenrod;
+}
+
+.restart-button {
+    display: none;
+    height: 60px;
+    width: 426px;
+    margin: 0px auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-align: center;
+    font-family: "Arial";
+    font-size: 40px;
+    color: darkslategray;
+    padding: 3px 0px;
+    border: 6px solid darkslategray;
+}
+
+.restart-button:hover {
+    border-color: lightslategray;
+    color: lightslategray;
+}
+
+.losing-line {
+    color: palevioletred;
 }
