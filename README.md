@@ -1,5 +1,5 @@
 # Tic-Tac-Toe game with AI
-https://iskandersamerkhanov.github.io/
+Play game: https://iskandersamerkhanov.github.io/
 
 ## Overview
 
