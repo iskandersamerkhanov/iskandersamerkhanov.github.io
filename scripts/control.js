@@ -35,7 +35,9 @@ $(".cell").each(function() {
             ui.switchToStartingMenu();
         }
     })
-$(".restart-button").click(function() {
-    ui.switchToStartingMenu();
 });
+
+$(".restart-button").click(function() {
+    globals.game.status = "ended";
+    ui.switchToStartingMenu();
 });
